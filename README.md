@@ -1,5 +1,7 @@
 # MLOps Homework 4
 
+*Автор: Никитина Дарья Дмитриевна*
+
 ## Что сделано
 - Обучена модель ResNet18 на датасете AI vs Human Generated Images (Train_1)
 - Интеграция с TensorBoard: логируются loss, accuracy, F1, precision, recall
