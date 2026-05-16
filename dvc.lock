@@ -1,0 +1,45 @@
+schema: '2.0'
+stages:
+  finetune:
+    cmd: python scripts/finetune.py
+    deps:
+    - path: ai-vs-human-generated-dataset-hw/Train_2
+      hash: md5
+      md5: cd8edb58d893e35241fdf8fbf6049229.dir
+      size: 229344118
+      nfiles: 3998
+    - path: scripts/finetune.py
+      hash: md5
+      md5: 27fd6b9453652044dc68a82581fd4342
+      size: 3932
+      isexec: true
+    outs:
+    - path: model_v2.pth
+      hash: md5
+      md5: a7dce30a96b256b450667a22510ae034
+      size: 44787787
+      isexec: true
+  test:
+    cmd: python scripts/test_model.py
+    deps:
+    - path: ai-vs-human-generated-dataset-hw/Test_2
+      hash: md5
+      md5: be5492c21e2dec84056e1599a807ccd1.dir
+      size: 114391042
+      nfiles: 2001
+    - path: model_v2.pth
+      hash: md5
+      md5: a7dce30a96b256b450667a22510ae034
+      size: 44787787
+      isexec: true
+    - path: scripts/test_model.py
+      hash: md5
+      md5: b5f83bb0aa963381efdf6c60173c0edb
+      size: 4080
+      isexec: true
+    outs:
+    - path: metrics_v2.json
+      hash: md5
+      md5: fc0e2481d723debfd77ef029ef1f1f22
+      size: 158
+      isexec: true

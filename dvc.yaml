@@ -1,0 +1,18 @@
+stages:
+  finetune:
+    cmd: python scripts/finetune.py
+    deps:
+      - scripts/finetune.py
+      - ai-vs-human-generated-dataset-hw/Train_2
+    outs:
+      - model_v2.pth
+
+  test:
+    cmd: python scripts/test_model.py
+    deps:
+      - scripts/test_model.py
+      - model_v2.pth
+      - ai-vs-human-generated-dataset-hw/Test_2
+    metrics:
+      - metrics_v2.json:
+          cache: false
